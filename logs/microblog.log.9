@@ -1,0 +1,84 @@
+2019-07-03 14:24:18,248 ERROR: Exception on / [GET] [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask/app.py:1780
+Traceback (most recent call last):
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlite3.OperationalError: no such table: user
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2311, in wsgi_app
+    response = self.full_dispatch_request()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1834, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1737, in handle_user_exception
+    reraise(exc_type, exc_value, tb)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask/_compat.py", line 36, in reraise
+    raise value
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 1830, in full_dispatch_request
+    rv = self.preprocess_request()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask/app.py", line 2106, in preprocess_request
+    rv = func()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/routes.py", line 12, in before_request
+    if current_user.is_authenticated:
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 348, in __getattr__
+    return getattr(self._get_current_object(), name)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/werkzeug/local.py", line 307, in _get_current_object
+    return self.__local()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 26, in <lambda>
+    current_user = LocalProxy(lambda: _get_user())
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask_login/utils.py", line 335, in _get_user
+    current_app.login_manager._load_user()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 359, in _load_user
+    return self.reload_user()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/flask_login/login_manager.py", line 321, in reload_user
+    user = self.user_callback(user_id)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/models.py", line 10, in load_user
+    return User.query.get(int(id))
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 959, in get
+    return self._get_impl(ident, loading.load_on_pk_identity)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 1069, in _get_impl
+    return db_load_fn(self, primary_key_identity)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/loading.py", line 282, in load_on_pk_identity
+    return q.one()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3282, in one
+    ret = self.one_or_none()
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3251, in one_or_none
+    ret = list(self)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3324, in __iter__
+    return self._execute_and_instances(context)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/orm/query.py", line 3349, in _execute_and_instances
+    result = conn.execute(querycontext.statement, self._params)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 988, in execute
+    return meth(self, multiparams, params)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/sql/elements.py", line 287, in _execute_on_connection
+    return connection._execute_clauseelement(self, multiparams, params)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1107, in _execute_clauseelement
+    distilled_params,
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1248, in _execute_context
+    e, statement, parameters, cursor, context
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1466, in _handle_dbapi_exception
+    util.raise_from_cause(sqlalchemy_exception, exc_info)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 399, in raise_from_cause
+    reraise(type(exception), exception, tb=exc_tb, cause=cause)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/util/compat.py", line 153, in reraise
+    raise value.with_traceback(tb)
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/base.py", line 1244, in _execute_context
+    cursor, statement, parameters, context
+  File "/Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/venv/lib/python3.7/site-packages/sqlalchemy/engine/default.py", line 550, in do_execute
+    cursor.execute(statement, parameters)
+sqlalchemy.exc.OperationalError: (sqlite3.OperationalError) no such table: user
+[SQL: SELECT user.id AS user_id, user.username AS user_username, user.email AS user_email, user.password_hash AS user_password_hash, user.about_me AS user_about_me, user.last_seen AS user_last_seen 
+FROM user 
+WHERE user.id = ?]
+[parameters: (2,)]
+(Background on this error at: http://sqlalche.me/e/e3q8)
+2019-07-03 14:28:12,291 INFO: Microblog startup [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/__init__.py:44
+2019-07-03 14:28:41,541 INFO: Microblog startup [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/__init__.py:44
+2019-07-03 14:28:42,930 INFO: Microblog startup [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/__init__.py:44
+2019-07-03 14:28:56,965 INFO: Microblog startup [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/__init__.py:44
+2019-07-03 14:29:34,710 INFO: Microblog startup [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/__init__.py:44
+2019-07-03 14:31:02,016 INFO: Microblog startup [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/__init__.py:44
+2019-07-03 14:32:14,674 INFO: Microblog startup [in /Users/reecenicholls/OneDrive - Cowes Enterprise College/CODING/Website Stuff/microblog/main_app/__init__.py:44
